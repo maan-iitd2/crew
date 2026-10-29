@@ -8,12 +8,13 @@ A Claude Code skill that turns one rough prompt into planned, delegated, verifie
 
 1. **Sizes the task.** Tiny jobs skip planning and go straight to one cheap worker. Vague ideas get questions first instead of a plan built on guesses.
 2. **Scouts.** 1–3 Haiku agents map the relevant files. The planner never reads files itself, which keeps its context small.
-3. **Writes a brief:** goal, what was found, a runnable *done when* check, and what's out of scope. It says what to do, never how.
-4. **Plans the pieces,** each with an agent, a model, the skills to load and a check.
-5. **Asks you once:** Go / Change / Cancel.
-6. **Runs** the pieces as subagents, in parallel where they're independent. Big fan-outs run as a dynamic workflow.
-7. **Verifies.** A fresh, read-only verifier tries to break the result, with at most 2 fix rounds.
-8. **Reports** the evidence and which model did what.
+3. **Writes a full-context brief:** goal, why, your own steps verbatim, everything the scouts found, a *done when* check that doesn't rely on the model's judgement, and what's out of scope. It passes full context but never plans the how; if you listed steps, those are the plan.
+4. **Suggests optional upgrades,** using the four kinds of ambition from Felix Rieseberg's [How to be more ambitious](https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/). Speed is the default; **Altitude** aims at the outcome you want after the task, **Depth** works the way a top expert would (raw data, real methods, an outside check), and **Range** borrows from other fields. Nothing is added unless you pick it.
+5. **Plans the pieces,** each with an agent, a model, the skills to load and a check.
+6. **Asks you once:** Go / Go with upgrades / Change / Cancel.
+7. **Runs** the pieces as subagents, in parallel where they're independent. Big fan-outs run as a dynamic workflow.
+8. **Verifies.** A fresh, read-only verifier tries to break the result, with at most 2 fix rounds.
+9. **Reports** the evidence and which model did what.
 
 ## Why
 

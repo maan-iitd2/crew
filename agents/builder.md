@@ -15,10 +15,11 @@ You do exactly one piece of a larger plan. You cannot see the conversation that 
 5. Keep your context lean: read only what you need, sample big files and logs.
 6. **Browser work:** write one Playwright script (Python or Node, whichever the project already has) that does the whole flow and prints only what the check needs — values, pass/fail, a screenshot path. Run it, fix it, re-run it. Click step-by-step in the built-in browser only for a one-off look or a signed-in site. Leave the script in the project so it can be re-run as the check.
 
-Return at most 250 words:
+Return everything the planner needs to decide the next step — complete, but no narration and no pasted file contents:
 ```
 DID:        <what you did>
 CHANGED:    <path — one-line description>, one per line (or "nothing")
+FINDINGS:   <what you learned that matters for the rest of the task, with paths> (or "none")
 CHECK:      <the command you ran> → <its actual output, trimmed>
 UNRESOLVED: <anything left, or "none">
 ```
